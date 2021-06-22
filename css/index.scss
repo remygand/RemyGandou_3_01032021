@@ -39,7 +39,7 @@
         border: none;
         border-radius: 11% / 50%;
         box-shadow: 0 0.625rem 0.625rem -0.3125rem $button_shadow_color;
-        color: $secondary_text-color;
+        color: $secondary_text_color;
         font: 400 0.975rem $text_font;
         padding: 1rem 1.5rem;
         min-width: max-content;
@@ -105,7 +105,7 @@
             align-items: center;
             background-color: $primary_color;
             border-radius: 50%;
-            color: $secondary_text-color;
+            color: $secondary_text_color;
             content: counter(step);
             display: flex;
             font-family: $text_font, sans-serif;
@@ -120,6 +120,7 @@
         }
         &:hover {
             background-color: $hover_background-color;
+            box-shadow: 0 0.1875rem 0.625rem 0.1875rem $card_shadow_color;
             span {
                 color: $primary_color;
             }
@@ -134,7 +135,7 @@
         margin-bottom: 1.375rem;
     }
     a {
-        background-color: $secondary_text-color;
+        background-color: $secondary_text_color;
         border-radius: 0.9375rem;
         box-shadow: 0 0.625rem 0.625rem -0.25rem $card_shadow_color;
         display: flex;
@@ -144,25 +145,52 @@
         position: relative;
         img {
             min-width: 21rem;
-            max-width: 100%;
+            width: 100%;
             height: 10.875rem;
             object-fit: cover;
         }
-        strong, p:nth-of-type(1) {
-            padding: 0 0.8125rem;
+        > div {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 1.5rem 1rem 0.8125rem;
+            div:nth-child(1) {
+                display: flex;
+                flex-direction: column;
+                strong {
+                    font-size: 1.125rem;
+                    margin-bottom: 0.3125rem;
+                }
+                p {
+                    font-size: 1,0625rem;
+                    font-weight: 300;
+                }
+            }
+            div:nth-child(2) {
+                position: relative;
+                width: 1.4375rem;
+                height: 1.5625rem;
+                margin: 0.3125rem 0 15px;
+                span {
+                    position: absolute;
+                    transform: scale(1.4375, 1.5625);
+                    transform-origin: 0 0;
+                }
+                .far {
+                    opacity: 1;
+                    &:hover {
+                        opacity: 0;
+                    }
+                }
+                .fas {
+                    background: linear-gradient($primary_color, $secondary_color);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    color: transparent;
+                    @include heart;
+                } 
+            }
         }
-        strong {
-            font-size: 1.125rem;
-            margin: 1rem 0 0.25rem 0;
-        }
-        p:nth-of-type(1) {
-            font-size: 1,0625rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-        p:nth-of-type(2), button {
-            position: absolute;
-        }
+        /*
         p:nth-of-type(2) {
             background-color: $tertiary_color;
             color: $tiertiary_text-color;
@@ -171,42 +199,7 @@
             right: 0.75rem;
             top: 0.8125rem;
             border-radius: 0.125rem;
-        }
-        button {
-            background-color: unset;
-            border: unset;
-            bottom: 2.0625rem;
-            font: unset;
-            padding: 0;
-            right: 1.6875rem;
-            .far{
-                opacity: 1;
-                transform: scale(1.4375, 1.5625);
-            }
-            .fas {
-                opacity: 0;
-                transform: scale(1.4375, 1.5625);
-            }
-            span {
-                width: 1.125rem;
-            }
-            &:hover {
-                .far {
-                    opacity: 0;
-                    transform: scale(1.4375, 1.5625);
-                }
-                .fas {
-                    opacity: 1;
-                    transform: scale(1.4375, 1.5625);
-                }
-                span {
-                    background: linear-gradient($primary_color, $secondary_color);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    color: transparent;
-                }
-            }
-        }
+        }*/
     }
     a[href*="la_palette_du_gout"], a[href*="a_la_francaise"] {
         img {

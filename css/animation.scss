@@ -1,5 +1,12 @@
+@mixin heart {
+    opacity: 0;
+    transition: opacity 500ms;
+    &:hover {
+        opacity: 1;
+    }
+}
 
-@keyframes spinner {
+/*@keyframes spinner {
     0% {
         transform: translate3d(-50%, -50%, 0) rotate(0deg);
     }
@@ -28,4 +35,4 @@
         width: 40px;
         will-change: transform;
     }
-}
+}*/
