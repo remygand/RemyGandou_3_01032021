@@ -1,4 +1,4 @@
-.img_menu {
+.menu_img {
     img {
         height: 17.1875rem;
         object-fit: cover;
@@ -7,7 +7,7 @@
 }
 
 .menu {
-    background-color: $background-color;
+    background-color: $other_background-color;
     border-radius: 2.5rem 2.5rem 0 0;
     display: flex;
     flex-direction: column;
@@ -47,44 +47,72 @@
         margin-bottom: 2.125rem;
     }
     li {
-        background-color: $secondary_text_color;
+        background-color: $normal_background-color;
         border-radius: 0.9375rem;
         box-shadow: 0 0.625rem 0.625rem -0.25rem $card_shadow_color;
+        cursor: pointer;
         display: flex;
-        justify-content: space-between;
         margin-bottom: 0.875rem;
-        padding: 0.75rem 1.4375rem 0.75rem 0.6875rem;
+        overflow: hidden;
         div {
             display: flex;
             flex-direction: column;
-            padding-right: 0.75rem;
+            padding: 0.75rem;
+            //flex: 1;
+            min-width: calc(100% - 4.5rem);
+            strong, p {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
             strong {
-                font-weight: 500;
-                font-size: 1.125rem;
+                font: 500 1.125rem $text_font;
                 margin-bottom: 0.3125rem;
             }
             p {
-                color: $footer_background-color;
-                font-size: 0.9375rem;
                 font-weight: 300;
             }
         }
+        div p, > strong {
+            color: $other_text_color;
+            font-size: 0.9375rem;
+        }
         > strong {
             align-items: flex-end;
-            color: $footer_background-color;
             display: flex;
-            font-size: 0.9375rem;
+            padding: 0.75rem 1.375rem 0.75rem 0;
+            min-width: 1.625rem;
+        }
+        span {
+            align-items: center;
+            background-color: $tertiary_color;
+            color: $reverse_text_color;
+            display: flex;
+            font-size: 1.25rem;
+            justify-content: center;
+            min-width: 3.75rem;
+        }
+        > strong, span {
+            transform: translate(0, 0);
+        }
+        > strong {
+            transition: transform 330ms 70ms ease-in-out;
+        }
+        span {
+            transition: transform 400ms ease-in-out;
+        }
+        &:hover {
+            > strong, span {
+                transform: translate(-3.75rem, 0);
+            }
+            span::before {
+                animation: icon_rotate 400ms ease-in-out;
+            }
         }
     }
     button {
-        background: linear-gradient($secondary_color, $primary_color);
         border-radius: 13% / 50%;
-        border: none;
-        box-shadow: 0 0.625rem 0.625rem -0.3125rem $button_shadow_color;
-        color: $secondary_text_color;
-        font: 400 0.975rem $text_font;
         margin: 0 auto;
-        min-width: max-content;
         padding: 1rem 3.125rem;
     }
 }

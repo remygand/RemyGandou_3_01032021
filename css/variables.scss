@@ -1,20 +1,27 @@
+//colors
+
 $primary_color: #9356dc;
 $secondary_color: #ff79da;
 $tertiary_color: #99e2d0;
 
-$background-color: #f6f6f6;
-$footer_background-color: #353535;
-$hover_background-color: #f5edfd;
-$location_background-color: #eaeaea;
+$normal_text_color: black;
+$other_text_color: #353535;
+$reverse_text_color: white;
+$tiertiary_text_color: #008769;
 
 $operation_icon_color: #7e7e7e;
 
-$text_color: black;
-$secondary_text_color: white;
-$tiertiary_text_color: #008769;
+$normal_background-color: white;
+$footer_background-color: #353535;
+$hover_background-color: #f5edfd;
+$location_background-color: #eaeaea;
+$other_background-color: #f6f6f6;
 
 $button_shadow_color: #bfbfbf;
 $card_shadow_color: #e1e1e1;
+$location_shadow_color: #353535;
 
-$text_font: 'Roboto';
-$title_font: 'Shrikhand';
+//fonts
+
+$text_font: 'Roboto', sans-serif;
+$title_font: 'Shrikhand', cursive;

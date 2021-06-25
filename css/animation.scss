@@ -1,8 +1,35 @@
-@mixin heart {
+@mixin btn_lighten_animation {
+    &:hover {
+        & .btn__light {
+            opacity: 1;
+        }
+    }
+    &__light {
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+    }
+}
+
+@mixin heart_filling_animation {
     opacity: 0;
-    transition: opacity 500ms;
+    transition: opacity 300ms ease-in-out;
     &:hover {
         opacity: 1;
+    }
+}
+
+@keyframes icon_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(90deg);
+    }
+    40% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
