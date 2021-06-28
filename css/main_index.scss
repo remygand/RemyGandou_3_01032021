@@ -1,3 +1,28 @@
+.loading-spinner {
+    position: fixed;
+    z-index: 2;
+    background-color: $normal_background-color;
+    height: 100vh;
+    width: 100%;
+    animation: 600ms 1s ease-in-out forwards spinner_out;
+    &::before {
+        animation: $time linear infinite spinner;
+        border: solid 0.1875rem;
+        border-color: $primary_color $normal_background-color $secondary_color;
+        border-radius: 50%;
+        content: "";
+        height: 2.5rem;
+        left: 50%;
+        opacity: inherit;
+        position: absolute;
+        top: 50%;
+        transform-origin: center;
+        transform: translate(-50%, -50%);
+        width: 2.5rem;
+    }
+}
+
+
 .location {
     background-color: $location_background-color;
     box-shadow: 0 0.3125rem 0.4375rem -0.4375rem $location_shadow_color inset;
@@ -162,30 +187,6 @@
                 p {
                     font: 300 1.0625rem $text_font;
                 }
-            }
-            .menu_icons {
-                height: 1.5625rem;
-                margin: 0.3125rem 0 0.9375rem;
-                position: relative;
-                width: 1.4375rem;
-                span {
-                    position: absolute;
-                    transform: scale(1.4375, 1.5625);
-                    transform-origin: 0 0;
-                }
-                .far { // empty heart
-                    opacity: 1;
-                    &:hover {
-                        opacity: 0;
-                    }
-                }
-                .fas { // full heart
-                    background: linear-gradient($primary_color, $secondary_color);
-                    background-clip: text;
-                    -webkit-background-clip: text;
-                    color: transparent;
-                    @include heart_filling_animation;
-                } 
             }
         }
     }

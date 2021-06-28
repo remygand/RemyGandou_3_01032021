@@ -12,36 +12,23 @@
     transform: rotate(360deg);
   }
 }
-/*@keyframes spinner {
-    0% {
-        transform: translate3d(-50%, -50%, 0) rotate(0deg);
-    }
-    100% {
-         transform: translate3d(-50%, -50%, 0) rotate(360deg);
-    }
+@keyframes spinner {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
-
-.spinner {
+@keyframes spinner_out {
+  0% {
     opacity: 1;
-    position: relative;
-    transition: opacity linear 0.1s;
-    &::before {
-        animation: 3s linear infinite spinner;
-        border: solid 3px #eaeaea;
-        border-bottom-color: #9356DC;
-        border-radius: 50%;
-        content: "";
-        height: 40px;
-        left: 50%;
-        opacity: inherit;
-        position: fixed;
-        top: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        transform-origin: center;
-        width: 40px;
-        will-change: transform;
-    }
-}*/
+  }
+  100% {
+    opacity: 0;
+    z-index: -3;
+  }
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -92,6 +79,38 @@ h2 {
   font-weight: 700;
 }
 
+.heart_icons {
+  height: 1.5625rem;
+  margin: 0.3125rem 0 0.9375rem 1.5rem;
+  position: relative;
+  width: 1.4375rem;
+}
+.heart_icons span {
+  position: absolute;
+  transform-origin: 0 0;
+  transform: scale(1.4375, 1.5625);
+}
+.heart_icons .fas {
+  background: linear-gradient(#9356dc, #ff79da);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.heart_icons .far {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+.heart_icons .fas {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+.heart_icons:hover .far {
+  opacity: 0;
+}
+.heart_icons:hover .fas {
+  opacity: 1;
+}
+
 li {
   list-style-type: none;
 }
@@ -127,7 +146,7 @@ body header h1 {
 body footer {
   background-color: #353535;
   color: white;
-  padding: 1.375rem 1.5rem 1.6875rem 1.5rem;
+  padding: 1.375rem 1.5rem 1.6875rem;
 }
 body footer h3 {
   font-size: 1.125rem;
@@ -135,23 +154,53 @@ body footer h3 {
 }
 body footer li {
   display: flex;
-  font-size: 0.9375rem;
+  font-size: 0.96875rem;
   margin-bottom: 0.5rem;
 }
 body footer span {
+  align-items: center;
+  display: flex;
+  font-size: 0.9375rem;
+  justify-content: center;
   margin-right: 0.625rem;
+  position: relative;
+  transform-origin: 0 0;
+  width: 0.8125rem;
 }
 body footer li:nth-of-type(1) span {
+  top: 0.0625rem;
   transform: scale(calc(12/12.19), calc(13/15));
 }
 body footer li:nth-of-type(2) span {
+  top: 0.1875rem;
   transform: scale(calc(12/18.75), calc(13/15));
-  position: relative;
-  right: 0.125rem;
-  width: 1rem;
 }
 body footer li:nth-of-type(3), body footer li:nth-of-type(4) {
   font-weight: 300;
+}
+
+.loading-spinner {
+  position: fixed;
+  z-index: 2;
+  background-color: white;
+  height: 100vh;
+  width: 100%;
+  animation: 600ms 1s ease-in-out forwards spinner_out;
+}
+.loading-spinner::before {
+  animation: 2s linear infinite spinner;
+  border: solid 0.1875rem;
+  border-color: #9356dc white #ff79da;
+  border-radius: 50%;
+  content: "";
+  height: 2.5rem;
+  left: 50%;
+  opacity: inherit;
+  position: absolute;
+  top: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  width: 2.5rem;
 }
 
 .location {
@@ -316,34 +365,6 @@ body footer li:nth-of-type(3), body footer li:nth-of-type(4) {
 .restaurants a > div .menu_text p {
   font: 300 1.0625rem "Roboto", sans-serif;
 }
-.restaurants a > div .menu_icons {
-  height: 1.5625rem;
-  margin: 0.3125rem 0 0.9375rem;
-  position: relative;
-  width: 1.4375rem;
-}
-.restaurants a > div .menu_icons span {
-  position: absolute;
-  transform: scale(1.4375, 1.5625);
-  transform-origin: 0 0;
-}
-.restaurants a > div .menu_icons .far {
-  opacity: 1;
-}
-.restaurants a > div .menu_icons .far:hover {
-  opacity: 0;
-}
-.restaurants a > div .menu_icons .fas {
-  background: linear-gradient(#9356dc, #ff79da);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  opacity: 0;
-  transition: opacity 300ms ease-in-out;
-}
-.restaurants a > div .menu_icons .fas:hover {
-  opacity: 1;
-}
 .restaurants a[href*=la_palette_du_gout] img, .restaurants a[href*=a_la_francaise] img {
   object-position: center -3.125rem;
 }
@@ -373,16 +394,11 @@ body footer li:nth-of-type(3), body footer li:nth-of-type(4) {
 .menu > div {
   padding: 0 1.5rem 1.875rem 0.375rem;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 .menu > div h2 {
   font-size: 1.75rem;
-}
-.menu > div span {
-  margin-left: auto;
-  position: absolute;
-  right: 1.75rem;
-  top: 0.6875rem;
-  transform: scale(1.4375, 1.5625);
 }
 .menu h4 {
   font-weight: 300;
@@ -416,7 +432,8 @@ body footer li:nth-of-type(3), body footer li:nth-of-type(4) {
   padding: 0.75rem;
   min-width: calc(100% - 4.5rem);
 }
-.menu li div strong, .menu li div p {
+.menu li div strong,
+.menu li div p {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -428,7 +445,8 @@ body footer li:nth-of-type(3), body footer li:nth-of-type(4) {
 .menu li div p {
   font-weight: 300;
 }
-.menu li div p, .menu li > strong {
+.menu li div p,
+.menu li > strong {
   color: #353535;
   font-size: 0.9375rem;
 }
@@ -447,7 +465,8 @@ body footer li:nth-of-type(3), body footer li:nth-of-type(4) {
   justify-content: center;
   min-width: 3.75rem;
 }
-.menu li > strong, .menu li span {
+.menu li > strong,
+.menu li span {
   transform: translate(0, 0);
 }
 .menu li > strong {
@@ -456,7 +475,8 @@ body footer li:nth-of-type(3), body footer li:nth-of-type(4) {
 .menu li span {
   transition: transform 400ms ease-in-out;
 }
-.menu li:hover > strong, .menu li:hover span {
+.menu li:hover > strong,
+.menu li:hover span {
   transform: translate(-3.75rem, 0);
 }
 .menu li:hover span::before {
