@@ -50,6 +50,7 @@ h2 {
     position: relative;
     width: 1.4375rem;
     span {
+        cursor: pointer;
         position: absolute;
         transform-origin: 0 0;
         transform: scale(1.4375, 1.5625);
@@ -78,9 +79,6 @@ body {
     font-family: $text_font;
     font-size: 1rem;
     margin: 0;
-    .wrapper {
-        width: 100%;
-    }
     header {
         position: relative;
         span {

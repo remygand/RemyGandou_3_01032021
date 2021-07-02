@@ -1,31 +1,40 @@
-//colors
+// colors
 
 $primary_color: #9356dc;
 $secondary_color: #ff79da;
 $tertiary_color: #99e2d0;
 
+// text color
 $normal_text_color: black;
 $other_text_color: #353535;
 $reverse_text_color: white;
 $tiertiary_text_color: #008769;
 
+// icon color
 $operation_icon_color: #7e7e7e;
 
+// background color
 $normal_background-color: white;
 $footer_background-color: #353535;
 $hover_background-color: #f5edfd;
 $location_background-color: #eaeaea;
 $other_background-color: #f6f6f6;
 
+// shadow color
 $button_shadow_color: #bfbfbf;
 $card_shadow_color: #e1e1e1;
 $location_shadow_color: #353535;
 
-//fonts
-
+// fonts
 $text_font: 'Roboto', sans-serif;
 $title_font: 'Shrikhand', cursive;
 
-//animation duration
-
-$time : 2s;
+// animation duration
+$btn_lighten_duration: 300ms;
+$heart_filling_duration: 300ms;
+$menu_addition_delay: 70ms;
+$menu_addition_duration: 400ms;
+$menu_transition_duration: $menu_addition_duration - $menu_addition_delay;
+$spinner_duration: 2000ms; 
+$spinner_out_delay: 1500ms;
+$spinner_out_duration: 600ms;

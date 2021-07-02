@@ -1,12 +1,10 @@
-.loading-spinner {
+.loading_spinner {
     position: fixed;
     z-index: 2;
     background-color: $normal_background-color;
     height: 100vh;
     width: 100%;
-    animation: 600ms 1s ease-in-out forwards spinner_out;
     &::before {
-        animation: $time linear infinite spinner;
         border: solid 0.1875rem;
         border-color: $primary_color $normal_background-color $secondary_color;
         border-radius: 50%;
@@ -20,6 +18,7 @@
         transform: translate(-50%, -50%);
         width: 2.5rem;
     }
+    @include loading_spinner_animation;
 }
 
 
