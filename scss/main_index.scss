@@ -1,6 +1,6 @@
 .loading_spinner {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     background-color: $normal_background-color;
     height: 100vh;
     width: 100%;
@@ -186,6 +186,9 @@
                 p {
                     font: 300 1.0625rem $text_font;
                 }
+            }
+            .heart_icons {
+                background-color: $normal_background-color;
             }
         }
     }

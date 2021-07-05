@@ -22,6 +22,9 @@
         h2 {
             font-size: 1.75rem;
         }
+        .heart_icons {
+            background-color: $other_background-color;
+        }
     }
     h4 {
         font-weight: 300;
@@ -50,6 +53,7 @@
         margin-bottom: 0.875rem;
         overflow: hidden;
         position: relative;
+        @include dishes_appearance_animation;
         div {
             display: flex;
             flex-direction: column;

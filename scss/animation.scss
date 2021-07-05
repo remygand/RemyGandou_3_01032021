@@ -1,3 +1,12 @@
+// mixin
+
+@mixin loading_spinner_animation {
+    animation: $spinner_out_duration $spinner_out_delay ease-in-out forwards spinner_out;
+    &::before {
+        animation: $spinner_duration linear infinite spinner;
+    }
+}
+
 @mixin btn_lighten_animation {
     &:hover {
         & .btn__light {
@@ -15,20 +24,30 @@
         opacity: 1;
         transition: opacity $heart_filling_duration ease-in-out;
     }
-    .fas { // full heart
-        opacity: 0;
-        transition: opacity $heart_filling_duration ease-in-out;
-    }
     &:hover {
         .far {
             opacity: 0;
         }
-        .fas {
-            opacity: 1;
-        }
     }
 }
 
+@keyframes heart_filling {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@mixin dishes_appearance_animation {
+    animation: dishes_appearance $dishes_appearance_duration ease-in-out both;
+    @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}){
+            animation-delay: $dishes_appearance_delay * $i;
+        }
+    }
+}
 
 @mixin menu_addition_animation {
     div {
@@ -58,27 +77,7 @@
     }
 }
 
-@keyframes icon_rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    10% {
-        transform: rotate(90deg);
-    }
-    40% {
-        transform: rotate(90deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@mixin loading_spinner_animation {
-    animation: $spinner_out_duration $spinner_out_delay ease-in-out forwards spinner_out;
-    &::before {
-        animation: $spinner_duration linear infinite spinner;
-    }
-}
+// keyframes
 
 @keyframes spinner {
     0% {
@@ -96,5 +95,31 @@
     100% {
         opacity: 0;
         z-index: -3;
+    }
+}
+
+@keyframes dishes_appearance {
+    0% {
+        transform: translate(0, 1rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes icon_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(90deg);
+    }
+    40% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }

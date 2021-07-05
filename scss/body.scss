@@ -55,11 +55,16 @@ h2 {
         transform-origin: 0 0;
         transform: scale(1.4375, 1.5625);
     }
-    .fas {
+    .far { // empty heart
+        background-color: inherit;
+        z-index: 2;
+    }
+    .fas { // full heart
         background: linear-gradient($primary_color, $secondary_color);
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
+        z-index: 1;
     }
     @include heart_filling_animation;
 }
