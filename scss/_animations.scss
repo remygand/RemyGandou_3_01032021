@@ -1,0 +1,126 @@
+// mixin
+
+@mixin loading_spinner_animation {
+    animation: $spinner_out_duration $spinner_out_delay ease-in-out forwards spinner_out;
+    &::before {
+        animation: $spinner_duration linear infinite spinner;
+    }
+}
+
+@mixin btn_lighten_animation {
+    &:hover {
+        & .btn__light {
+            opacity: 1;
+        }
+    }
+    &__light {
+        opacity: 0;
+        transition: opacity $btn_lighten_duration ease-in-out;
+    }
+}
+
+@mixin heart_filling_animation {
+    .far { // empty heart
+        opacity: 1;
+        transition: opacity $heart_filling_duration ease-in-out;
+    }
+    &:hover {
+        .far {
+            opacity: 0;
+        }
+    }
+}
+
+@mixin dishes_appearance_animation {
+    animation: dishes_appearance $dishes_appearance_duration ease-in-out both;
+    @for $i from 1 through 4 {
+        &:nth-of-type(#{$i}){
+            animation-delay: $dishes_appearance_delay * $i;
+        }
+    }
+}
+
+@mixin menu_addition_animation {
+    div {
+        transition: width $menu_addition_duration ease-in-out;
+        width: calc(100% - 4.5rem);
+        will-change: width;
+    }
+    > strong, span {
+        transform: translate(0, 0);
+    }
+    > strong {
+        transition: transform $menu_transition_duration $menu_addition_delay ease-in-out;
+    }
+    span {
+        transition: transform $menu_addition_duration ease-in-out;
+    }
+    &:hover {
+        div {
+            width: calc(100% - 8.25rem);
+        }
+        > strong, span {
+            transform: translate(-3.75rem, 0);
+        }
+        span::before {
+            animation: icon_rotate $menu_addition_duration ease-in-out;
+        }
+    }
+}
+
+// keyframes
+
+@keyframes spinner {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes spinner_out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        z-index: -3;
+    }
+}
+
+
+@keyframes heart_filling {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes dishes_appearance {
+    0% {
+        transform: translate(0, 1rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@keyframes icon_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(90deg);
+    }
+    40% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
